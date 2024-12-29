@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Montanary Elevators specializes in innovative, reliable, and energy-efficient elevator solutions for residential, commercial, and industrial needs.">
- <meta name="keywords" content="Montanary Elevators, elevator installation, elevator maintenance, modern elevators, best elevator solutions">
+   <meta id="meta-description" name="description" content="Montanary Elevators offers modern elevator solutions for homes and businesses.">
+    <meta id="meta-keywords" name="keywords" content="elevator installation, elevator services, Montanary Elevators, residential elevators, commercial elevators">
     <meta name="author" content="Montanary Elevators">
-    <title>Montanary Elevators | Modern and Reliable Elevator Solutions</title>
+    <title>Montanary Elevators | Modern Elevator Solutions</title>
     <style>
         body {
             margin: 0;
@@ -1292,6 +1292,24 @@ select:focus {
         </div>
     </footer>
     <script>
+     function updateSEO() {
+            const pageKeywords = {
+                "home": "elevator services, elevator solutions, Montanary Elevators",
+                "services": "residential elevator installation, commercial elevators, elevator repair services",
+                "about": "about Montanary Elevators, elevator experts, elevator history",
+                "contact": "contact Montanary Elevators, elevator service inquiries, elevator support"
+            };
+
+            const pageTitle = window.location.pathname.split('/').pop() || 'home'; // Get the last part of URL path
+            const keywords = pageKeywords[pageTitle] || pageKeywords['home']; // Default to 'home' if no match
+
+            document.getElementById('meta-keywords').setAttribute('content', keywords);
+            document.getElementById('meta-description').setAttribute('content', "Montanary Elevators provides " + keywords + ".");
+        }
+
+        window.onload = updateSEO;
+
+        
         document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("menu-toggle");
     const nav = document.querySelector("nav ul");
