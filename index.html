@@ -16,41 +16,115 @@
             color: goldenrod;
         }
         header {
-            background-color:#F9F6F0;
-            color: #D4AF37;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: left;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            margin: 0;
-            display: flex;
-            align-items: center;
-        }
-        header img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #D4AF37;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        nav ul li a:hover {
-            color: #007BFF;
-        }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-left img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+    }
+
+    .menu-icon {
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: block;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background-color: #444;
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      width: auto;
+      z-index: 10;
+      padding: 5px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mobile-nav ul li {
+      margin: 0;
+    }
+
+    .mobile-nav ul li a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      text-decoration: none;
+      background-color: #555;
+      border-radius: 5px;
+      text-align: left;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .mobile-nav ul li a:hover {
+      background-color: #f39c12;
+      transform: translateY(-2px);
+    }
+
+    .mobile-nav ul li a svg {
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    .desktop-nav {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .menu-icon, .mobile-nav {
+        display: none;
+      }
+
+      .desktop-nav {
+        display: flex;
+        gap: 20px;
+      }
+
+      .desktop-nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 10px 15px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .desktop-nav a:hover {
+        background-color: #f39c12;
+        color: #000;
+        border-radius: 5px;
+      }
+    }
+
+    /* hero section */
        
         .hero {
     position: relative;
@@ -477,16 +551,9 @@
 }
 
     @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
+   
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
+   
 
     .hero {
         padding: 50px 20px;
@@ -880,24 +947,32 @@ select:focus {
 </head>
 <body>
     <header>
-        <h1><img src="images/cloudflare_img/logo.png" alt="Company Logo">montanary elevators</h1>
-        <nav>
-            <button id="menu-toggle" style="display: none;">☰</button>
-
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#service">Services</a></li>
-
-                <li><a href="#products">products</a></li>
-                <li><a href="pages/videos.html">Videos</a></li>
-
-                <li><a href="#projects">Projects</a></li>
-                
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <div class="header-left">
+          <img src="images/cloudflare_img/favicon.ico" alt="Header Icon" />
+          <div class="logo">montanary elevators</div>
+        </div>
+        <div class="menu-icon" onclick="toggleMobileMenu()">☰</div>
+        <nav class="mobile-nav">
+          <ul>
+            <li><a href="#home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3l9 9h-3v9h-12v-9h-3z"/></svg>Home</a></li>
+            <li><a href="#about"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-4.42 0-8 2.02-8 4.5v1.5h16v-1.5c0-2.48-3.58-4.5-8-4.5z"/></svg>About Us</a></li>
+            <li><a href="#services"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 6h16v2h-16zM4 11h16v2h-16zM4 16h16v2h-16z"/></svg>Services</a></li>
+            <li><a href="#products"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v18h-18z"/></svg>Products</a></li>
+            <li><a href="pages/videos.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8l6 4-6 4z"/></svg>Videos</a></li>
+            <li><a href="#projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 13h6v6h-6zM15 3h6v6h-6zM3 3h6v6h-6zM15 13h6v6h-6z"/></svg>Projects</a></li>
+            <li><a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v18h-18z"/></svg>Contact</a></li>
+          </ul>
         </nav>
-    </header>
-
+        <nav class="desktop-nav">
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#products">Products</a>
+          <a href="pages/videos.html">Videos</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
     <div class="hero">
         <!-- Background Video -->
         <video class="background-video" autoplay muted loop>
@@ -1346,19 +1421,23 @@ select:focus {
         }
     };
 
-    // Toggle the navigation menu visibility
-    menuToggle.addEventListener("click", () => {
-        if (nav.style.display === "none" || nav.style.display === "") {
-            nav.style.display = "flex";
-        } else {
-            nav.style.display = "none";
-        }
-    });
-
+    
     // Handle initial load and resize events
     handleResize();
     window.addEventListener("resize", handleResize);
 });
+function toggleMobileMenu() {
+      const mobileNav = document.querySelector('.mobile-nav');
+      mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Close mobile menu when switching to desktop mode
+    window.addEventListener('resize', () => {
+      const mobileNav = document.querySelector('.mobile-nav');
+      if (window.innerWidth >= 768) {
+        mobileNav.style.display = 'none';
+      }
+    });
 
 
 function openFullscreen(imageSrc) {
