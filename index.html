@@ -278,15 +278,22 @@
             margin-bottom: 1.5rem;
         }
         
-        .about-video video {
-            width: 100%;
+        /* Fixed video sizing */
+        .about-video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
         }
         
-        .about-video video:hover {
-            transform: scale(1.02);
+        .about-video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         /* Generation-Specific Sections */
@@ -516,6 +523,13 @@
             margin-right: 10px;
             width: 20px;
             text-align: center;
+        }
+        
+        /* Fixed contact image sizing */
+        .contact-image {
+            position: relative;
+            height: 100%;
+            min-height: 300px;
         }
         
         .contact-image img {
@@ -902,7 +916,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video class="background-video" autoplay muted loop>
+        <video class="background-video" autoplay muted loop playsinline>
             <source src="videos/cloudflare_video/bgvideo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -927,11 +941,13 @@
                     <p>Whether you're looking for accessibility features or smart home integration, we have the perfect elevator solution for your needs.</p>
                 </div>
                 
-                <div class="about-video col-lg-5">
-                    <video controls class="w-100 rounded shadow">
-                        <source src="videos/cloudflare_video/homelift.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="col-lg-5">
+                    <div class="about-video-container">
+                        <video controls>
+                            <source src="videos/cloudflare_video/homelift.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1468,6 +1484,25 @@
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+        // Force video to play on mobile devices
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.background-video');
+            if (video) {
+                video.setAttribute('playsinline', '');
+                video.setAttribute('muted', '');
+                video.setAttribute('autoplay', '');
+                
+                // Some browsers require explicit play() call
+                const promise = video.play();
+                if (promise !== undefined) {
+                    promise.catch(error => {
+                        // Auto-play was prevented, show fallback
+                        video.controls = false;
+                    });
+                }
+            }
+        });
     </script>
 </body>
 </html>
