@@ -3,140 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Montanary Elevators offers modern elevator solutions for homes and businesses.">
-
-    <meta id="meta-keywords" name="keywords" content="elevator installation, elevator services, Montanary Elevators, residential elevators, commercial elevators, Montanari lifts">
+    <meta name="description" content="Montanary Elevators offers modern, accessible elevator solutions for all generations">
+    <meta id="meta-keywords" name="keywords" content="accessible elevators, smart elevators, modern lifts, senior-friendly elevators, high-tech elevators">
     <meta name="author" content="Montanary Elevators">
-    <title>Montanary Elevators | Modern Elevator Solutions </title>
+    <title>Montanary Elevators | Next-Gen Elevator Solutions</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #C0C0C0;
-            color: goldenrod;
+        :root {
+            --primary-color: #3a7bd5;  /* Modern blue */
+            --secondary-color: #00d2ff; /* Tech teal */
+            --senior-color: #ff7b54;   /* Warm orange for senior-friendly features */
+            --tech-color: #7858a6;     /* Purple for high-tech features */
+            --dark-color: #2d4059;
+            --light-color: #f5f5f5;
+            --gradient-primary: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+            --gradient-senior: linear-gradient(135deg, #ff7b54 0%, #ffb26b 100%);
+            --gradient-tech: linear-gradient(135deg, #7858a6 0%, #a782c8 100%);
         }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* Header Styles */
         header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .header-left img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-    }
-
-    .menu-icon {
-      font-size: 1.8rem;
-      cursor: pointer;
-      display: block;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background-color: #444;
-      position: absolute;
-      top: 50px;
-      right: 20px;
-      width: auto;
-      z-index: 10;
-      padding: 5px 0;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .mobile-nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .mobile-nav ul li {
-      margin: 0;
-    }
-
-    .mobile-nav ul li a {
-      display: flex;
-      align-items: center;
-      padding: 10px 20px;
-      font-size: 1rem;
-      color: #fff;
-      text-decoration: none;
-      background-color: #555;
-      border-radius: 5px;
-      text-align: left;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .mobile-nav ul li a:hover {
-      background-color: #f39c12;
-      transform: translateY(-2px);
-    }
-
-    .mobile-nav ul li a svg {
-      margin-right: 10px;
-      width: 20px;
-      height: 20px;
-      fill: #fff;
-    }
-
-    .desktop-nav {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .menu-icon, .mobile-nav {
-        display: none;
-      }
-
-      .desktop-nav {
-        display: flex;
-        gap: 20px;
-      }
-
-      .desktop-nav a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1rem;
-        padding: 10px 15px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      .desktop-nav a:hover {
-        background-color: #f39c12;
-        color: #000;
-        border-radius: 5px;
-      }
-    }
-
-    /* hero section */
-       
+            background: rgba(45, 64, 89, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background: rgba(45, 64, 89, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 5px 0;
+        }
+        
+        .header-left img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .menu-icon {
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-icon:hover {
+            color: var(--secondary-color);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: rgba(45, 64, 89, 0.98);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            overflow: hidden;
+            animation: fadeInDown 0.4s ease-out;
+        }
+        
+        .mobile-nav ul li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-nav ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav ul li a {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav ul li a:hover {
+            background: rgba(0, 210, 255, 0.2);
+            color: var(--secondary-color);
+            padding-left: 30px;
+        }
+        
+        .mobile-nav ul li a svg {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        .desktop-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .desktop-nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .desktop-nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
         .hero {
-    position: relative;
-    height: 80vh;  /* Adjusted height for better balance */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #B8860B;
-    text-align: center;
-    padding: 40px 0; /* Added padding for spacing */
-}
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+            background: var(--gradient-primary);
+        }
+        
         .hero .background-video {
             position: absolute;
             top: 0;
@@ -144,1371 +199,1275 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1;
+            z-index: -2;
+            opacity: 0.2;
         }
-        .hero .background-image {
+        
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .btn-primary {
+            background: white;
+            border: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            animation: fadeIn 1.5s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Section */
+        .about-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .about-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .about-text h2::after {
+            content: '';
             position: absolute;
-            top: 0;
+            bottom: -10px;
             left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .about-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-video video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .about-video video:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Generation-Specific Sections */
+        .senior-section {
+            background: var(--gradient-senior);
+            color: white;
+        }
+        
+        .tech-section {
+            background: var(--gradient-tech);
+            color: white;
+        }
+        
+        .generation-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            text-align: center;
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .feature-item.senior-feature {
+            border-top-color: var(--senior-color);
+        }
+        
+        .feature-item.tech-feature {
+            border-top-color: var(--tech-color);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 30px;
+        }
+        
+        .senior-feature .feature-icon {
+            background: var(--gradient-senior);
+        }
+        
+        .tech-feature .feature-icon {
+            background: var(--gradient-tech);
+        }
+        
+        .feature-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .feature-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Specifications Section */
+        .elevator-specifications {
+            background: linear-gradient(135deg, #f9f9f9 0%, #eef2f5 100%);
+            padding: 80px 0;
+        }
+        
+        .specifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .specification-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .specification-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .specification-icon {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .specification-item:hover .specification-icon {
+            transform: scale(1.05);
+        }
+        
+        .specification-item h3 {
+            color: var(--primary-color);
+            padding: 20px 20px 10px;
+            margin: 0;
+        }
+        
+        .specification-item p {
+            color: #666;
+            padding: 0 20px 20px;
+            line-height: 1.6;
+        }
+        
+        /* Products Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .service-item {
+            position: relative;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-item .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(45, 64, 89, 0.9);
+            color: white;
+            transform: translateY(100%);
+            transition: all 0.4s ease;
+        }
+        
+        .service-item:hover .content {
+            transform: translateY(0);
+        }
+        
+        .service-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .service-item p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-details {
+            padding: 40px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.05rem;
+        }
+        
+        .contact-details p i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .contact-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1;
+            transition: all 0.5s ease;
         }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-        }
-        .hero-content {
-            z-index: 1;
-        }
-        .hero-content h2 {
-            font-size: 3rem;
-            margin: 0 0 10px;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-        }
-        .section {
-    padding: 60px 20px;  /* Increased padding for better separation */
-    max-width: 1200px;
-    margin: 40px auto;  /* Added margin for spacing between sections */
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-        .services {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .services div {
-            flex: 1;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .services div:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .projects div {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px #F6F6F6;
-            background-color: #fff;
-            transition: transform 0.3s;
-        }
-        .projects div:hover {
+        
+        .contact-image:hover img {
             transform: scale(1.05);
         }
-        .projects img {
-            width: 5%;
-            height: auto;
+        
+        /* Enquiry Form */
+        .enquiry-form-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            transition: all 0.3s ease;
         }
-        .projects h3 {
-            margin: 0;
-            padding: 15px;
-            font-size: 20px;
-            background-color: #007BFF;
+        
+        .enquiry-form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .enquiry-form-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .enquiry-form-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(58, 175, 169, 0.25);
+        }
+        
+        .submit-btn {
+            background: var(--primary-color);
             color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #2d68c0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        #responseMessage {
+            margin-top: 20px;
+            font-size: 1rem;
             text-align: center;
         }
-        .projects p {
-            padding: 15px;
-            font-size: 16px;
-        }
+        
+        /* Footer */
         footer {
-        background-color:#001F3D;
-        color: white;
-        padding: 30px 20px;
-        text-align: center;
-    }
-
-    .footer-content {
-        margin-bottom: 20px;
-    }
-
-    .footer-content p {
-        margin: 0;
-        font-size: 14px;
-        color: #D4AF37;
-    }
-
-    .social-icons {
-        margin-top: 10px;
-    }
-
-    .social-icons a {
-        color: #FFD700;
-        margin: 0 10px;
-        text-decoration: none;
-        font-size: 24px;
-        transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
-        color: #007BFF;
-    }
-
-    .locations-container {
-        display: flex;
-        justify-content: space-between;
-        text-align: left;
-        flex-wrap: wrap;
-        gap: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px 0;
-    }
-    .services {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px 0;
-}
-.services div {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px #F9F6F0;
-    transition: transform 0.3s;
-}
-.services div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-
-    .branch-info, .service-areas {
-        background-color: #F9F6F0;
-        padding: 15px;
-        border-radius: 8px;
-        width: 45%;
-        color: #D4AF37;
-    }
-
-    .branch-info h4, .service-areas h4 {
-        font-size: 18px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #007BFF;
-        padding-bottom: 5px;
-    }
-
-    .service-areas ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .service-areas li {
-        font-size: 14px;
-        margin: 5px 0;
-        color: #ccc;
-    }
-
-    @media (max-width: 768px) {
-        .locations-container {
-            flex-direction: column;
-            align-items: center;
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+            position: relative;
         }
-
-        .branch-info, .service-areas {
-            width: 100%;
+        
+        .footer-content {
+            margin-bottom: 40px;
+        }
+        
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 20px;
         }
-    }
-
-.locations-container {
-    display: flex;
-    justify-content: space-around;
-    text-align: left;
-    margin-top: 20px;
-}
-
-.locations-container div {
-    width: 40%; /* Adjust as needed for spacing */
-}
-
-.locations-container h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #9C7C38;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-}
-
-.locations-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.locations-container li {
-    font-size: 14px;
-    color: #D4AF37;
-    margin: 5px 0;
-}
+        
         .social-icons {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
+        
         .social-icons a {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: #555;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            text-decoration: none;
-            color: #D4AF37;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-        .social-icons a:hover {
-            background-color: #007BFF;
-        }
-          /* Features Section Styles */
-    .features {
-      padding: 50px 20px;
-      background-color: #f9f9f9;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 2em;
-      margin-bottom: 30px;
-      color:#B8860B;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .feature-item {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .feature-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 15px;
-    }
-
-    .feature-item h3 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-      color: #555;
-    }
-
-    .feature-item p {
-      font-size: 0.7em;
-      color: #777;
-      line-height: 1.6;
-    }
-   /* Base styles for the blocks */
-.projects div, .services-grid .service-item {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-size: cover; /* Background image scales to cover the container */
-    background-position: center;
-    height: 200px; /* Default height */
-    transition: all 0.4s ease; /* Smooth transition */
-    position: relative;
-    cursor: pointer;
-}
-
-/* Hover styles to expand the block */
-.projects div:hover, .services-grid .service-item:hover {
-    height: 400px; /* Expand height on hover */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add a more prominent shadow */
-}
-
-/* Text container inside the block */
-.projects div .content, .services-grid .service-item .content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background:#F9F6F0; /* Semi-transparent background for text readability */
-    color: #FFE4C4;
-    padding: 15px;
-    transition: opacity 0.4s ease; /* Smooth fade-in/out effect */
-    opacity: 0; /* Hidden by default */
-}
-
-/* Show the content on hover */
-.projects div:hover .content, .services-grid .service-item:hover .content {
-    opacity: 1; /* Show the content */
-}
-
-/* "Read More" button */
-.read-more {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    color: white;
-    background-color:#FFD700;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.read-more:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
-
-/* Mobile View Adjustments */
-@media (max-width: 768px) {
-    .projects div, .services-grid .service-item {
-        height: 200px; /* Reduce height for mobile view */
-    }
-
-    .projects h3, .services-grid h3 {
-        font-size: 18px; /* Adjust heading size */
-    }
-
-    .projects p, .services-grid p {
-        font-size: 14px; /* Adjust text size */
-    }
-}
-
-
-    .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.service-item {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px #DAA520;
-}
-
-.service-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-}
-
-.service-item h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #555;
-}
-
-.service-item p {
-    font-size: 0.9em;
-    color: #D4AF37;
-    line-height: 1.6;
-    
-}
-
-    @media (max-width: 768px) {
-   
-
-   
-
-    .hero {
-        padding: 50px 20px;
-        font-size: 16px;
-    }
-
-    .services, .projects {
-        flex-direction: column;
-    }
-
-    .locations-container {
-        flex-direction: column;
-    }
-}
-.contact-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.contact-details {
-    flex: 1;
-    min-width: 100px;
-}
-
-
-.contact-details p{
-    color:black;
-}
-.contact-image {
-    flex: 1;
-    min-width: 200px;
-    text-align: center;
-}
-
-.contact-image img {
-    width: 90%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-details {
-        margin-bottom: 20px;
-    }
-}
-@media (max-width: 768px) {
-    .hero {
-        height: 60vh;  /* Adjusted hero height for smaller screens */
-    }
-    .section {
-        padding: 40px 20px;  /* Adjusted padding on smaller screens */
-    }
-}
-/* Styling for About Us Section */
-/* Updated About Us Section */
-.about-section {
-    background: linear-gradient(135deg, #f5f5f5, #e0e0e0); /* Soft gradient */
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.about-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.about-text {
-    flex: 1;
-    max-width: 600px;
-    margin-right: 40px;
-    text-align: left;
-    padding: 20px;
-}
-
-.about-text h2 {
-    font-size: 2.5rem;
-    color: goldenrod;
-    margin-bottom: 20px;
-    font-family: 'Arial', sans-serif;
-}
-
-.about-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #003366;
-    margin-bottom: 15px;
-    text-align: justify;
-}
-
-.about-image {
-    flex: 1;
-    max-width: 240px;
-    padding: 20px;
-    text-align: center;
-}
-
-.about-image img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .about-text {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    .about-image img {
-        max-width: 100%;
-    }
-}
-
-.about-video video {
-    width: 60%;       /* Makes the video scale to fit its container */
-    max-width: 500px;  /* Sets a maximum width for the video */
-    height: auto;      /* Maintains aspect ratio */
-    border-radius: 8px; /* Optional: Adds rounded corners for styling */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow effect */
-    display: block;    /* Centers the video when combined with margin auto */
-    margin: 0 auto;    /* Centers the video horizontally */
-}
-
-/* General Styles for Elevator Specifications Section */
-.elevator-specifications {
-  padding: 2em;
-  background-color: #f9f9f9;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 1em;
-  color: #333;
-}
-
-.specifications-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5em;
-  justify-items: center;
-  align-items: start;
-}
-
-.specification-item {
-  background: #fff;
-  padding: 1.5em;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.specification-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.specification-icon {
-  width: 100%;
-  max-width: 250px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 1em;
-  cursor: pointer;
-}
-
-.specification-item h3 {
-  font-size: 1.5em;
-  color: #444;
-  margin-bottom: 0.5em;
-}
-
-.specification-item p {
-  font-size: 1em;
-  color: #666;
-  line-height: 1.6;
-}
-
-/* Fullscreen Modal Styling */
-.fullscreen-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.fullscreen-overlay img {
-  max-width: 90%;
-  max-height: 90%;
-  border: 2px solid white;
-  border-radius: 5px;
-}
-
-.fullscreen-overlay:active {
-  cursor: pointer;
-}
-
- /* Styling for the call button */
- .call-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color:#32CD32; /* WhatsApp-like green */
             color: white;
-            border: none;
-            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-5px);
+        }
+        
+        .locations-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px auto;
+        }
+        
+        .branch-info, .service-areas {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .branch-info:hover, .service-areas:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .branch-info h4, .service-areas h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .branch-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+        
+        .service-areas ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .service-areas li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .service-areas li::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 12px;
+            color: var(--secondary-color);
+        }
+        
+        /* Call Button */
+        .call-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
             width: 60px;
             height: 60px;
+            background: var(--senior-color);
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        .call-button:hover {
-            background-color: blue;
-        }
-
-        .call-icon {
             font-size: 24px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
-        .section-title{
-            color: #B8860B;
-        }
-
-/* Form Container Styling */
-.enquiry-form-container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 40px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 1000px;
-  text-align: center;
-}
-
-/* Heading Styles */
-h2 {
-  font-size: 2.2rem;
-  color: #007bff; /* Bright blue color for heading */
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-p {
-  font-size: 1.1rem;
-  color: #555; /* Softer gray for secondary text */
-  margin-bottom: 1.5rem;
-}
-
-/* Form Group Styling */
-.form-group {
-  margin-bottom: 1.8rem;
-  text-align: left;
-}
-
-/* Label Styling */
-label {
-  font-size: 1.2rem;
-  color: #007bff; /* Blue color for labels */
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-/* Input and Select Styling */
-input,
-select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-input:focus,
-select:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-  outline: none;
-}
-
-/* Button Styling */
-/* button {
-  width: 100%;
-  padding: 15px;
-  background-color: goldenrod; 
-  color: white;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 1.5rem;
-  transition: background-color 0.3s ease;
-}*/
-
-
-/* Response Message Styling */
-#responseMessage {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: #28a745; /* Green color for success messages */
-  text-align: center;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .enquiry-form-container {
-    padding: 20px;
-    width: 90%; /* Make form container width responsive */
-  }
-
-  h2 {
-    font-size: 1.8rem; /* Smaller font size for mobile */
-    margin-bottom: 0.8rem;
-  }
-
-  p {
-    font-size: 1rem; /* Slightly smaller text on mobile */
-  }
-
-  .form-group {
-    margin-bottom: 1.2rem;
-  }
-
-  label {
-    font-size: 1rem; /* Slightly smaller label font size */
-  }
-
-  input,
-  select {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  button {
-    font-size: 1.1rem; /* Smaller button font size */
-    padding: 14px;
-  }
-}
-
-#whatsapp-chat {
-  position: fixed;
-  bottom: 20px; /* Position from the bottom */
-  left: 20px;   /* Position from the left */
-  z-index: 1000;
-}
-
-#whatsapp-chat img {
-  width: 60px; /* Size of the WhatsApp icon */
-  height: 60px; /* Size of the WhatsApp icon */
-  border-radius: 50%; /* Optional: round the icon */
-  cursor: pointer; /* Change the cursor on hover */
-}
         
+        .call-button:hover {
+            background: #e66a45;
+            transform: scale(1.1) translateY(-5px);
+        }
+        
+        /* WhatsApp Button */
+        #whatsapp-chat {
+            position: fixed;
+            bottom: 110px;
+            left: 30px;
+            z-index: 999;
+            animation: bounce 2s infinite;
+        }
+        
+        #whatsapp-chat img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        #whatsapp-chat img:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 123, 84, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 123, 84, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 123, 84, 0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-text {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .contact-details {
+                padding: 30px 20px;
+            }
+            
+            .enquiry-form-container {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .feature-item, .specification-item {
+                padding: 20px;
+            }
+            
+            .call-button, #whatsapp-chat img {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            #whatsapp-chat {
+                left: 20px;
+                bottom: 90px;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="msvalidate.01" content="3230B28E0DB26046716B286A855FD18C" />
-    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
-     <link rel="icon" href="images/cloudflare_img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/cloudflare_img/favicon.ico" type="image/x-icon">
 </head>
-<body>
-    <header>
-        <div class="header-left">
-          <img src="images/cloudflare_img/favicon.ico" alt="Header Icon" />
-          <div class="logo">montanary elevators</div>
+<body data-bs-spy="scroll" data-bs-target=".desktop-nav">
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <div class="header-left d-flex align-items-center gap-3">
+                    <img src="images/cloudflare_img/favicon.ico" alt="Montanary Elevators Logo" class="img-fluid">
+                    <div class="logo">Montanary Elevators</div>
+                </div>
+                
+                <div class="menu-icon d-lg-none" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#senior-friendly"><i class="fas fa-wheelchair"></i> Senior-Friendly</a></li>
+                        <li><a href="#tech-advanced"><i class="fas fa-microchip"></i> Tech-Advanced</a></li>
+                        <li><a href="#products"><i class="fas fa-box-open"></i> Products</a></li>
+                        <li><a href="pages/videos.html"><i class="fas fa-video"></i> Videos</a></li>
+                        <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <nav class="desktop-nav d-none d-lg-flex">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About Us</a>
+                    <a href="#senior-friendly" class="nav-link">Senior-Friendly</a>
+                    <a href="#tech-advanced" class="nav-link">Tech-Advanced</a>
+                    <a href="#products" class="nav-link">Products</a>
+                    <a href="pages/videos.html" class="nav-link">Videos</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
         </div>
-        <div class="menu-icon" onclick="toggleMobileMenu()">☰</div>
-        <nav class="mobile-nav">
-          <ul>
-            <li><a href="#home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3l9 9h-3v9h-12v-9h-3z"/></svg>Home</a></li>
-            <li><a href="#about"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-4.42 0-8 2.02-8 4.5v1.5h16v-1.5c0-2.48-3.58-4.5-8-4.5z"/></svg>About Us</a></li>
-            <li><a href="#services"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 6h16v2h-16zM4 11h16v2h-16zM4 16h16v2h-16z"/></svg>Services</a></li>
-            <li><a href="#products"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v18h-18z"/></svg>Products</a></li>
-            <li><a href="pages/videos.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8l6 4-6 4z"/></svg>Videos</a></li>
-            <li><a href="#projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 13h6v6h-6zM15 3h6v6h-6zM3 3h6v6h-6zM15 13h6v6h-6z"/></svg>Projects</a></li>
-            <li><a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h18v18h-18z"/></svg>Contact</a></li>
-          </ul>
-        </nav>
-        <nav class="desktop-nav">
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#services">Services</a>
-          <a href="#products">Products</a>
-          <a href="pages/videos.html">Videos</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
-    <div class="hero">
-        <!-- Background Video -->
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <video class="background-video" autoplay muted loop>
             <source src="videos/cloudflare_video/bgvideo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-
-        <!-- Background Image (as fallback or alternative) -->
-        <!-- <img class="background-image" src="montanary_elevators.jpg" alt="Background Image"> -->
-
-        <!-- Overlay and Content -->
-        <div class="hero-overlay"></div>
+        
         <div class="hero-content">
-            <h2>Welcome to Montanary Elevators</h2>
-            <p>Your Comfort, Our Priority</p>
+            <h2 class="animate__animated animate__fadeInDown">Elevating All Generations</h2>
+            <p class="animate__animated animate__fadeInUp">Modern solutions for every age - accessible for seniors, advanced for the tech-savvy</p>
+            <a href="#contact" class="btn btn-primary animate__animated animate__fadeIn">Get a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section py-5">
+        <div class="container">
+            <h2 class="section-title text-center">About Montanary Elevators</h2>
             
-
-        </div>
-    </div>
-
-    <!-- <section id="about" class="feature">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>About Montanary Elevators</h2>
-                <p>Welcome to Montanary Elevators, where we redefine vertical transportation with cutting-edge technology, unparalleled safety, and superior customer service. We specialize in providing high-quality elevators that cater to residential, commercial, and industrial spaces. Our products are engineered with precision and designed to enhance the functionality and aesthetics of your building.</p>
-                <p>At Montanary Elevators, we prioritize your safety and convenience. Our team is dedicated to delivering timely, reliable, and innovative elevator solutions that meet the evolving needs of our customers. We don't just provide elevators—we provide peace of mind with our unmatched service, installation, and maintenance.</p>
-                <p>Join us in elevating your world with superior quality, sustainable solutions, and a commitment to excellence. Choose Montanary Elevators for a future that's safe, efficient, and effortlessly accessible.</p>
-            </div>
-            <div class="about-image">
-                <img src="ssbigvision.jpg" alt="Elevator Installation" />
-            </div>
-        </div>
-    </section> -->
-
-    <section id="about" class="feature">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>About Montanary Elevators</h2>
-                <p>Welcome to Montanary Elevators, where we redefine vertical transportation with cutting-edge technology, unparalleled safety, and superior customer service. We specialize in providing high-quality elevators that cater to residential, commercial, and industrial spaces. Our products are engineered with precision and designed to enhance the functionality and aesthetics of your building.</p>
-                <p>At Montanary Elevators, we prioritize your safety and convenience. Our team is dedicated to delivering timely, reliable, and innovative elevator solutions that meet the evolving needs of our customers. We don't just provide elevators—we provide peace of mind with our unmatched service, installation, and maintenance.</p>
-                <p>Join us in elevating your world with superior quality, sustainable solutions, and a commitment to excellence. Choose Montanary Elevators for a future that's safe, efficient, and effortlessly accessible.</p>
-            </div>
-            <div class="about-video">
-                <video controls>
-                    <source src="videos/cloudflare_video/homelift.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="about-container row g-4 align-items-center">
+                <div class="about-text col-lg-7">
+                    <h2>Bridging Generations with Elevator Technology</h2>
+                    <p>At Montanary Elevators, we understand that different generations have different needs. That's why we've developed a range of elevator solutions that combine senior-friendly accessibility with cutting-edge technology for the modern user.</p>
+                    <p>Our senior-friendly models feature larger buttons, voice assistance, and emergency systems, while our tech-advanced options include smart home integration, touchless controls, and AI-assisted operation.</p>
+                    <p>Whether you're looking for accessibility features or smart home integration, we have the perfect elevator solution for your needs.</p>
+                </div>
+                
+                <div class="about-video col-lg-5">
+                    <video controls class="w-100 rounded shadow">
+                        <source src="videos/cloudflare_video/homelift.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
     </section>
-    
-    
-    
-    <section class="features">
-        <h2 class="section-title">The major ascepts before delivering the Montanary Elevators:</h2>
-        <div class="features-grid">
-          <div class="feature-item">
-            <img src="images/cloudflare_img/simple.png" alt="Simple & Elegant Design" class="feature-icon" />
-            <h3>Simple & Elegant Design</h3>
-            <p>Elevator design that enhances the overall look of your building while providing seamless functionality.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/cloudflare_img/user_friendly.png" alt="User-Friendly Controls" class="feature-icon" />
-            <h3>User-Friendly Controls</h3>
-            <p>We create controls by keeping in mind all ages as well as for special needs people.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/cloudflare_img/self_regulations.png" alt="Safety Regulations" class="feature-icon" />
-            <h3>Safety Regulations</h3>
-            <p>Adhering to all guidelines and elevator safety regulations as prescribed by the governing authorities.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/cloudflare_img/safety_grauntee.png" alt="Safety Guarantee" class="feature-icon" />
-            <h3>Safety Guarantee</h3>
-            <p>Our products ensure the safety of your building's occupants and meet rigorous safety standards.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/cloudflare_img/support.png" alt="Our Support" class="feature-icon" />
-            <h3>Our Support</h3>
-            <p>We provide swift and efficient delivery and installation with top-notch customer support.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/cloudflare_img/quality.png" alt="Our Quality" class="feature-icon" />
-            <h3>Our Quality</h3>
-            <p>Our products undergo rigorous testing and are designed with the highest quality standards.</p>
-          </div>
+
+    <!-- Senior-Friendly Section -->
+    <section id="senior-friendly" class="section py-5 senior-section text-white">
+        <div class="container">
+            <h2 class="section-title text-center">Senior-Friendly Features</h2>
+            <p class="text-center mb-5">Designed with accessibility and ease-of-use for older adults</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="generation-icon">
+                            <i class="fas fa-wheelchair"></i>
+                        </div>
+                        <h3>Wheelchair Accessible</h3>
+                        <p>Spacious cabins with wide doors and low thresholds for easy wheelchair access</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="generation-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Easy-to-Use Controls</h3>
+                        <p>Large, high-contrast buttons with tactile feedback and optional voice control</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="generation-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Emergency Systems</h3>
+                        <p>24/7 emergency call buttons with direct connection to monitoring services</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        </section>
+    </section>
 
+    <!-- Tech-Advanced Section -->
+    <section id="tech-advanced" class="section py-5 tech-section text-white">
+        <div class="container">
+            <h2 class="section-title text-center">Tech-Advanced Features</h2>
+            <p class="text-center mb-5">Cutting-edge technology for the modern user</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="generation-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Assistance</h3>
+                        <p>Voice-activated controls and predictive destination selection</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="generation-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Smart App Control</h3>
+                        <p>Control your elevator remotely with our smartphone app</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="generation-icon">
+                            <i class="fas fa-hand-paper"></i>
+                        </div>
+                        <h3>Touchless Operation</h3>
+                        <p>Gesture and motion controls for hygienic, contactless use</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Features Section -->
+    <section class="features py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Commitment to Excellence</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item senior-feature animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                    <div class="feature-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3>Accessible Design</h3>
+                    <p>Thoughtfully designed for seniors with large buttons, handrails, and non-slip flooring</p>
+                </div>
+                
+                <div class="feature-item tech-feature animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                    <div class="feature-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Smart Technology</h3>
+                    <p>Integration with smart home systems and IoT devices</p>
+                </div>
+                
+                <div class="feature-item senior-feature animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safety First</h3>
+                    <p>Advanced safety features including emergency brakes and backup power</p>
+                </div>
+                
+                <div class="feature-item tech-feature animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                    <div class="feature-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3>Biometric Access</h3>
+                    <p>Secure access with fingerprint or facial recognition technology</p>
+                </div>
+                
+                <div class="feature-item senior-feature animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated support line with priority response for seniors</p>
+                </div>
+                
+                <div class="feature-item tech-feature animate__animated animate__fadeInUp" data-wow-delay="0.6s">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Energy Efficient</h3>
+                    <p>AI-powered energy optimization reduces power consumption by up to 40%</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="elevator-specifications">
-            <h2 class="section-title">Elevator Specifications</h2>
+    <!-- Elevator Specifications -->
+    <section class="elevator-specifications py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Elevator Specifications</h2>
+            
             <div class="specifications-grid">
-              <div class="specification-item">
-                <a href="#" onclick="openFullscreen('images/specification_cloudflare/passengerelevator.jpeg')">
-                  <img src="images/specification_cloudflare/passengerelevator.jpeg" alt="Passenger Elevator Specification" class="specification-icon" />
-                </a>
-                <h3>Passenger Elevators</h3>
-                <p>Designed to safely transport people between floors, these elevators are widely used in residential, and public buildings with various capacities.</p>
-              </div>
-              <div class="specification-item">
-                <a href="#" onclick="openFullscreen('images/specification_cloudflare/homelevator.jpg')">
-                  <img src="images/specification_cloudflare/homelevator.jpg" alt="Home Elevator Specification" class="specification-icon" />
-                </a>
-                <h3>Home Elevators</h3>
-                <p>Compact elevators for residential use, providing convenience and accessibility, especially for the elderly or individuals with mobility challenges.</p>
-              </div>
-              <div class="specification-item">
-                <a href="#" onclick="openFullscreen('images/specification_cloudflare/strectherelevator.jpg')">
-                  <img src="images/specification_cloudflare/strectherelevator.jpg" alt="Stretcher Elevator Specification" class="specification-icon" />
-                </a>
-                <h3>Stretcher Elevators</h3>
-                 <p>Specialized elevators for hospitals, designed to transport stretchers and medical equipment with spacious interiors and safety features.</p>
-              </div>
-              <div class="specification-item">
-                <a href="#" onclick="openFullscreen('images/specification_cloudflare/observationelevator.jpg')">
-                  <img src="images/specification_cloudflare/observationelevator.jpg" alt="Observation Elevator Specification" class="specification-icon" />
-                </a>
-                <h3>Observation Elevators</h3>
-                <p>Glass-enclosed elevators offering panoramic views, enhancing user experience in high-rise buildings, malls, and luxury spaces.</p>
-              </div>
-            </div>
-        </section>
-
-
-        <section id="products" class="features">
-        <h2 class="section-title">Our Products</h2>
-        <div class="services-grid">
-            <!-- Product 1 -->
-            <div class="service-item" style="background-image: url('images/products_cloudflare/liftdoor.jpg');">
-                <div class="content">
-                    <h3>Lift Doors</h3>
-                    <p>Experience comfort and elegance </p>
-                    <p>with our advanced home lifts.</p>
-                    <a href="pages/liftdoors.html" class="read-more">Read More</a>
+                <div class="specification-item animate__animated animate__fadeIn">
+                    <a href="#" onclick="openFullscreen('images/specification_cloudflare/passengerelevator.jpeg')">
+                        <img src="images/specification_cloudflare/passengerelevator.jpeg" alt="Passenger Elevator" class="specification-icon img-fluid">
+                    </a>
+                    <h3>Accessibility Line</h3>
+                    <p>Designed specifically for seniors with extra-wide cabins, handrails, and emergency features</p>
+                </div>
+                
+                <div class="specification-item animate__animated animate__fadeIn" data-wow-delay="0.1s">
+                    <a href="#" onclick="openFullscreen('images/specification_cloudflare/homelevator.jpg')">
+                        <img src="images/specification_cloudflare/homelevator.jpg" alt="Home Elevator" class="specification-icon img-fluid">
+                    </a>
+                    <h3>Smart Home Line</h3>
+                    <p>Voice-controlled, app-enabled elevators with smart home integration</p>
+                </div>
+                
+                <div class="specification-item animate__animated animate__fadeIn" data-wow-delay="0.2s">
+                    <a href="#" onclick="openFullscreen('images/specification_cloudflare/strectherelevator.jpg')">
+                        <img src="images/specification_cloudflare/strectherelevator.jpg" alt="Stretcher Elevator" class="specification-icon img-fluid">
+                    </a>
+                    <h3>Health Care Line</h3>
+                    <p>Medical-grade elevators with stretcher capacity and emergency response systems</p>
+                </div>
+                
+                <div class="specification-item animate__animated animate__fadeIn" data-wow-delay="0.3s">
+                    <a href="#" onclick="openFullscreen('images/specification_cloudflare/observationelevator.jpg')">
+                        <img src="images/specification_cloudflare/observationelevator.jpg" alt="Observation Elevator" class="specification-icon img-fluid">
+                    </a>
+                    <h3>Luxury Tech Line</h3>
+                    <p>Premium elevators with panoramic views and cutting-edge technology</p>
                 </div>
             </div>
-
-            <div class="service-item" style="background-image: url('images/products_cloudflare/liftcabin1.jpg');">
-                <div class="content">
-                    <h3>Lift Cabins</h3>
-                    <p>Latest Cabin with new Features .</p>
-                    <a href="pages/liftcabin.html" class="read-more">Read More</a>
-                </div>
-            </div>
-    
-            <!-- Product 2 -->
-            <div class="service-item" style="background-image: url('images/products_cloudflare/touchscreen.jpg');">
-                <div class="content">
-                    <h3>Touch screen</h3>
-                    <p>Latest Touch technology .</p>
-                    <!-- <a href="pages/latesttouch.html" class="read-more">Read More</a> -->
-                </div>
-            </div>
-
-            <div class="service-item" style="background-image: url('images/products_cloudflare/accesscard1.jpg');">
-                <div class="content">
-                    <h3>Access Card </h3>
-                    <p>Latest Access crd technology .</p>
-                    <!-- <a href="pages/accesscard.html" class="read-more">Read More</a> -->
-                </div>
-            </div>
-    
-            <!-- Add more products -->
         </div>
     </section>
-    
 
-        <section id="projects" class="features">
-            <h2 class="section-title">Our Projects</h2>
+    <!-- Products Section -->
+    <section id="products" class="section py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Products</h2>
+            
             <div class="services-grid">
-                <!-- Product 1 -->
+                <div class="service-item" style="background-image: url('images/products_cloudflare/liftdoor.jpg');">
+                    <div class="content">
+                        <h3>Accessible Doors</h3>
+                        <p>Wider openings with slow-close mechanisms for safety</p>
+                        <a href="pages/liftdoors.html" class="read-more">See Options</a>
+                    </div>
+                </div>
+                
+                <div class="service-item" style="background-image: url('images/products_cloudflare/liftcabin1.jpg');">
+                    <div class="content">
+                        <h3>Smart Cabins</h3>
+                        <p>Voice-controlled cabins with customizable lighting</p>
+                        <a href="pages/liftcabin.html" class="read-more">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="service-item" style="background-image: url('images/products_cloudflare/touchscreen.jpg');">
+                    <div class="content">
+                        <h3>Touch screen</h3>
+                        <p>High-contrast displays with adjustable text sizes</p>
+                    </div>
+                </div>
+                
+                <div class="service-item" style="background-image: url('images/products_cloudflare/accesscard1.jpg');">
+                    <div class="content">
+                        <h3>Biometric Access</h3>
+                        <p>Fingerprint and facial recognition for secure access</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Our Projects</h2>
+            
+            <div class="services-grid">
                 <div class="service-item" style="background-image: url('images/projects_cloudflare/bonamnilayam.jpg');">
                     <div class="content">
-                        <h3>Home Lift</h3>
-                        <p>Experience comfort and elegance </p>
-                        <p>with our advanced home lifts.</p>
+                        <h3>Senior Living Facility</h3>
+                        <p>Accessible elevators with emergency call systems</p>
                         <p>Bhimavaram</p>
-                        <!-- <a href="bonamnilayam.jpg" class="read-more">Read More</a> -->
                     </div>
                 </div>
-        
-                <!-- Product 2 -->
+                
                 <div class="service-item" style="background-image: url('images/projects_cloudflare/tadepalligudem.jpg');">
                     <div class="content">
-                        <h3>Home Lift</h3>
-                        
+                        <h3>Smart Home Installation</h3>
+                        <p>Voice-controlled elevators with app integration</p>
                         <p>Tadepalligudem</p>
-                        <!-- <a href="tadepalligudem.jpg" class="read-more">Read More</a> -->
                     </div>
                 </div>
-    
+                
                 <div class="service-item" style="background-image: url('images/projects_cloudflare/lasyaprojects.png');">
                     <div class="content">
-                        <h3> Lasya  Enclave</h3>
-                        <p> One lift  of 6 passengers  capacity</p>
-                        <!-- <a href="lasyaprojects.png" class="read-more">Read More</a> -->
+                        <h3>Lasya Enclave</h3>
+                        <p>Hybrid system serving all generations</p>
                     </div>
                 </div>
-
+                
                 <div class="service-item" style="background-image: url('images/projects_cloudflare/project-4.jpg');">
                     <div class="content">
-                        <h3></h3>
-                        <p> SS Small Glass One Side Opening</p>
-                        <!-- <a href="project-4.jpg" class="read-more">Read More</a> -->
+                        <h3>Tech-Enabled Office</h3>
+                        <p>Touchless operation with destination dispatch</p>
                     </div>
                 </div>
-        
-                <!-- Add more products -->
-            </div>
-        </section>
-
-    <section id="service" class="features">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <!-- Service 1: Supply and Installation -->
-            <div class="service-item">
-                <h3>Supply and Installation of Elevators</h3>
-                <p><strong>Home Elevators:</strong> Compact, stylish, and space-efficient lifts designed for private homes.</p>
-                <p><strong>Commercial Elevators:</strong> Heavy-duty lifts for offices, malls, and other commercial buildings.</p>
-                <p><strong>Customizable Elevators:</strong> Tailored solutions for unique architectural requirements, including panoramic glass lifts and premium interiors.</p>
-            </div>
-    
-            <!-- Service 2: 24/7 Maintenance Services -->
-            <div class="service-item">
-                <h3>24/7 Maintenance Services</h3>
-                <p><strong>Emergency Repairs:</strong> Round-the-clock response to breakdowns or issues, with quick deployment of technicians.</p>
-                <p><strong>Preventive Maintenance:</strong> Monthly, quarterly, or yearly checkups to ensure smooth operation.</p>
-                <p><strong>Remote Troubleshooting:</strong> IoT-enabled systems to remotely diagnose and fix smart elevator issues.</p>
-            </div>
-    
-            <!-- Service 3: Annual Maintenance Contract (AMC) -->
-            <div class="service-item">
-                <h3>Annual Maintenance Contract (AMC)</h3>
-                <p>Regular inspection, cleaning, lubrication, and component replacement at no extra charge under the AMC.</p>
-                <p>Comprehensive system performance tests for safety and efficiency.</p>
-            </div>
-    
-            <!-- Service 4: Upgradation and Modernization -->
-            <div class="service-item">
-                <h3>Upgradation and Modernization</h3>
-                <p><strong>Technology Upgrades:</strong> Upgrading existing elevators with the latest technology such as touchless operation, AI fault detection, and energy-saving systems.</p>
-                <p><strong>Interior Design Updates:</strong> Enhancing cabin aesthetics with new flooring, lighting, and panel designs.</p>
-            </div>
-    
-            <!-- Service 5: Safety Checks and Compliance -->
-            <div class="service-item">
-                <h3>Safety Checks and Compliance</h3>
-                <p>Routine safety audits to ensure elevators meet all regulatory standards.</p>
-                <p>Free annual safety inspection reports for peace of mind.</p>
-            </div>
-    
-            <!-- Service 6: IoT-Enabled Services -->
-            <!-- <div class="service-item">
-                <h3>IoT-Enabled Services</h3>
-                <p>Smart elevator management through IoT, enabling real-time monitoring, predictive maintenance, and remote troubleshooting.</p>
-            </div> -->
-    
-            <!-- Service 7: Customer Support Services -->
-            <div class="service-item">
-                <h3>Customer Support Services</h3>
-                <p>24/7 helpline for complaints and assistance. Mobile app for service requests and maintenance tracking.</p>
-                <p>Online portal for AMC renewal and payment options.</p>
-            </div>
-    
-            <!-- Service 8: Installation of Advanced Features -->
-            <div class="service-item">
-                <h3>Installation of Advanced Features</h3>
-                <p>Touchless controls, voice-activated commands, and battery backups for uninterrupted operation during power outages.</p>
-            </div>
-    
-            <!-- Service 9: Energy Efficiency Solutions -->
-            <div class="service-item">
-                <h3>Energy Efficiency Solutions</h3>
-                <p>Retrofitting elevators with energy-efficient motors and lighting systems, with solar-powered options available for homes and small buildings.</p>
-            </div>
-    
-            <!-- Service 10: Elevator Training and Awareness Programs -->
-            <!-- <div class="service-item">
-                <h3>Elevator Training and Awareness Programs</h3>
-                <p>Free workshops for building staff on safe elevator operation and emergency procedures.</p>
-            </div> -->
-        </div>
-    </section>
-    
-    
-    <section id="contact" class="section">
-        <h2>Contact Us</h2>
-        <div class="contact-container">
-            <div class="contact-details">
-                <p>If you have any questions, please reach out to us at:</p>
-                <p>Email: montanaryelevators@gmail.com</p>
-                <p>Phone: 9000737676, 8500884447</p>
-                <p>Address: 10-7-34/1 Rangreej Peta, Rajahmundry, E.G. Dist, A.P</p>
-            </div>
-            <div class="contact-image">
-                <img src="images/cloudflare_img/manager.jpg" alt="Contact Us" />
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="enquiry-form-container">
-          <h2>Request an Enquiry</h2>
-          <p>Please fill out the form below, and we will get back to you soon.</p>
-    
-          <form id="enquiryForm">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Your Full Name" required />
+    <!-- Contact Section -->
+    <section id="contact" class="section py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Contact Us</h2>
+            
+            <div class="contact-container row g-4 align-items-center">
+                <div class="contact-details col-lg-6">
+                    <p><i class="fas fa-envelope"></i> Email: montanaryelevators@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> Phone: 9000737676, 8500884447</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Address: 10-7-34/1 Rangreej Peta, Rajahmundry, E.G. Dist, A.P</p>
+                    
+                    <div class="mt-4">
+                        <h5>Accessibility Hotline</h5>
+                        <p><i class="fas fa-wheelchair"></i> Special assistance: 9000737677</p>
+                    </div>
+                </div>
+                
+                <div class="contact-image col-lg-6">
+                    <img src="images/cloudflare_img/manager.jpg" alt="Contact Montanary Elevators" class="img-fluid rounded shadow">
+                </div>
             </div>
-    
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Your Email Address" required />
-            </div>
-    
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number" />
-            </div>
-    
-          <div class="form-group">
-              <label for="cabin">Select Cabin</label>
-              <select id="cabin" name="cabin" required>
-                <option value="">Choose Cabin</option>
-                <option value="SS Cabin">SS Cabin</option>
-                <option value="Gold Glass cabin">Gold Glass cabin</option>
-                <option value="Premium Glass Cabin">Premium Glass Cabin</option>
-                <option value="Luxury marble Cabin">Luxury marble Cabin</option>
-                <option value="Wooden Finish Cabin">Wooden Finish Cabin</option>
-                <option value="Black Pearl cabin">Black Pearl cabin</option>
-                <option value="Get More Cabin Details">Get More Cabin Details</option>
-              </select>
-            </div>
-    
-            <div class="form-group">
-              <label for="door">Select Door</label>
-              <select id="door" name="door" required>
-                <option value="">Choose Door</option>
-                <option value="Swing Doors">Swing Doors</option>
-                <option value="Center Opening Doors">Center Opening Doors</option>
-                <option value="Big Vision Doors">Big Vision Doors</option>
-                <option value="Collapsible gate">Collapsible gate</option>
-                <option value="Wooden color Door">Wooden color Door</option>
-                <option value="Get More Doors Details">Get More Doors Details</option>
-              </select>
-            </div>
-    
-            <div class="form-group">
-              <label for="services">Select Services</label>
-              <select id="services" name="services" required>
-                <option value="">Choose Services</option>
-                <option value="Cleaning">Cleaning</option>
-                <option value="Maintenance">Maintenance</option>
-                <option value="Installation">Installation</option>
-              </select>
-            </div>
-            <!-- <div class="form-group">
-                <input type="text">information
-            </div> -->
-            <button type="submit" class="submit-btn">Send to WhatsApp</button>
-            <div id="responseMessage"></div>
-          </form>
         </div>
-      </section>
+    </section>
 
+    <!-- Enquiry Form -->
+    <section class="section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="enquiry-form-container">
+                        <h2>Request an Enquiry</h2>
+                        <p>Please fill out the form below, and we will get back to you soon.</p>
+                        
+                        <form id="enquiryForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="Your Full Name" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Your Email Address" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="interest">Primary Interest</label>
+                                        <select id="interest" name="interest" class="form-control" required>
+                                            <option value="">Select Interest</option>
+                                            <option value="Senior-Friendly">Senior-Friendly Features</option>
+                                            <option value="Tech-Advanced">Tech-Advanced Features</option>
+                                            <option value="Both">Both</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Specific Requirements</label>
+                                <textarea id="message" name="message" class="form-control" rows="3" placeholder="Tell us about your specific needs"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send Enquiry</button>
+                            <div id="responseMessage"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <a href="tel:+919000737676" class="call-button" title="Call Us">
-        <span class="call-icon">📞</span>
-    </a>
-    <div id="whatsapp-chat">
-        <a href="https://wa.me/919000737676" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat" />
-        </a>
-    </div>
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Company Name. All Rights Reserved.</p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/montanary_elevators?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                <!-- <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a> -->
-                <a href="https://www.youtube.com/@hitacheelevators6589" target="_blank">
-                <i class="fab fa-youtube"></i> 
-            </a>
-                <a href="mailto:montanaryelevators@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        <div class="container">
+            <div class="footer-content text-center">
+                <p>&copy; 2024 Montanary Elevators. All Rights Reserved.</p>
+                
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/montanary_elevators?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@hitacheelevators6589" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="mailto:montanaryelevators@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
             
-        </div>
-        <div class="locations-container">
-            <!-- Main Branch Section -->
-            <div class="branch-info">
-                <h4>Main Branch</h4>
-                <p>Address: 10-7-34/1, Rangreej Peta, Rajahmundry, E.G. Dist, A.P</p>
-                <p>Contact: 9000737676</p>
-            </div>
-            <!-- Services Available Areas Section -->
-            <div class="service-areas">
-                <h4>Services Available Areas</h4>
-                <ul>
-                    <li>Razole</li>
-                    <li>Palacole</li>
-                    <li>Tadepalligudem</li>
-                    <li>Narsapur</li>
-                    <li>Amalapuram</li>
-                    <li>Bhimavaram</li>
-                    <li>Kakinada</li>
-                    <li>E.G & W.G Dist </li>
-                    <li>Alt Pho-no:8500884447</li>
-                </ul>
+            <div class="locations-container">
+                <div class="branch-info">
+                    <h4>Main Branch</h4>
+                    <p>Address: 10-7-34/1, Rangreej Peta, Rajahmundry, E.G. Dist, A.P</p>
+                    <p>Contact: 9000737676</p>
+                </div>
+                
+                <div class="service-areas">
+                    <h4>Services Available Areas</h4>
+                    <ul>
+                        <li>Razole</li>
+                        <li>Palacole</li>
+                        <li>Tadepalligudem</li>
+                        <li>Narsapur</li>
+                        <li>Amalapuram</li>
+                        <li>Bhimavaram</li>
+                        <li>Kakinada</li>
+                        <li>E.G & W.G Dist</li>
+                        <li>Senior Support: 9000737677</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Call Button -->
+    <a href="tel:+919000737676" class="call-button" title="Call Us">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- WhatsApp Button -->
+    <div id="whatsapp-chat">
+        <a href="https://wa.me/919000737676" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+        </a>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-     function updateSEO() {
-            const pageKeywords = {
-                "home": "elevator services, elevator solutions, Montanary Elevators",
-                "services": "residential elevator installation, commercial elevators, elevator repair services",
-                "about": "about Montanary Elevators, elevator experts, elevator history",
-                "contact": "contact Montanary Elevators, elevator service inquiries, elevator support"
-            };
-
-            const pageTitle = window.location.pathname.split('/').pop() || 'home'; // Get the last part of URL path
-            const keywords = pageKeywords[pageTitle] || pageKeywords['home']; // Default to 'home' if no match
-
-            document.getElementById('meta-keywords').setAttribute('content', keywords);
-            document.getElementById('meta-description').setAttribute('content', "Montanary Elevators provides " + keywords + ".");
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
         }
 
-        window.onload = updateSEO;
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.querySelector('.mobile-nav');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            if (!mobileNav.contains(event.target)) {
+                if (event.target !== menuIcon && !menuIcon.contains(event.target)) {
+                    mobileNav.style.display = 'none';
+                }
+            }
+        });
 
-        
-        document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const nav = document.querySelector("nav ul");
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
-    // Toggle button visibility on smaller screens
-    const handleResize = () => {
-        if (window.innerWidth <= 768) {
-            menuToggle.style.display = "block";
-            nav.style.display = "none";
-        } else {
-            menuToggle.style.display = "none";
-            nav.style.display = "flex";
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.mobile-nav').style.display = 'none';
+                }
+            });
+        });
+
+        // Fullscreen image viewer
+        function openFullscreen(imageSrc) {
+            const fullscreenDiv = document.createElement('div');
+            fullscreenDiv.style.position = 'fixed';
+            fullscreenDiv.style.top = '0';
+            fullscreenDiv.style.left = '0';
+            fullscreenDiv.style.width = '100%';
+            fullscreenDiv.style.height = '100%';
+            fullscreenDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            fullscreenDiv.style.display = 'flex';
+            fullscreenDiv.style.justifyContent = 'center';
+            fullscreenDiv.style.alignItems = 'center';
+            fullscreenDiv.style.zIndex = '10000';
+            fullscreenDiv.style.cursor = 'zoom-out';
+
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.style.maxWidth = '90%';
+            img.style.maxHeight = '90%';
+            img.style.objectFit = 'contain';
+            img.style.borderRadius = '5px';
+
+            fullscreenDiv.appendChild(img);
+
+            fullscreenDiv.addEventListener('click', function() {
+                document.body.removeChild(fullscreenDiv);
+            });
+
+            document.body.appendChild(fullscreenDiv);
         }
-    };
 
-    
-    // Handle initial load and resize events
-    handleResize();
-    window.addEventListener("resize", handleResize);
-});
-function toggleMobileMenu() {
-      const mobileNav = document.querySelector('.mobile-nav');
-      mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
-    }
+        // Enquiry form submission
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    // Close mobile menu when switching to desktop mode
-    window.addEventListener('resize', () => {
-      const mobileNav = document.querySelector('.mobile-nav');
-      if (window.innerWidth >= 768) {
-        mobileNav.style.display = 'none';
-      }
-    });
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value;
 
+            const responseMessage = document.getElementById('responseMessage');
 
-function openFullscreen(imageSrc) {
-      const fullscreenDiv = document.createElement('div');
-      fullscreenDiv.style.position = 'fixed';
-      fullscreenDiv.style.top = 0;
-      fullscreenDiv.style.left = 0;
-      fullscreenDiv.style.width = '100%';
-      fullscreenDiv.style.height = '100%';
-      fullscreenDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
-      fullscreenDiv.style.display = 'flex';
-      fullscreenDiv.style.justifyContent = 'center';
-      fullscreenDiv.style.alignItems = 'center';
-      fullscreenDiv.style.zIndex = 1000;
+            // Validate required fields
+            if (name && email && phone && interest) {
+                // Prepare WhatsApp message
+                const whatsappMessage = `
+                    *Enquiry Details*%0A%0A
+                    *Name*: ${name}%0A
+                    *Email*: ${email}%0A
+                    *Phone*: ${phone}%0A%0A
+                    *Primary Interest*: ${interest}%0A
+                    *Specific Requirements*: ${message || 'None provided'}
+                `;
 
-      const img = document.createElement('img');
-      img.src = imageSrc;
-      img.style.maxWidth = '90%';
-      img.style.maxHeight = '90%';
-      img.style.border = '2px solid white';
+                // Open WhatsApp with pre-filled message
+                window.open(`https://wa.me/919000737676?text=${whatsappMessage}`, '_blank');
 
-      fullscreenDiv.appendChild(img);
+                // Show success message
+                responseMessage.textContent = 'Thank you! Your enquiry has been sent. We will contact you shortly.';
+                responseMessage.style.color = 'green';
+                
+                // Reset form
+                this.reset();
+            } else {
+                responseMessage.textContent = 'Please fill in all required fields.';
+                responseMessage.style.color = 'red';
+            }
+        });
 
-      fullscreenDiv.onclick = () => {
-        document.body.removeChild(fullscreenDiv);
-      };
+        // Initialize animations when elements come into view
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    const animationClass = element.classList[1];
+                    element.classList.add('animate__' + animationClass.split('animate__')[1]);
+                }
+            });
+        }
 
-      document.body.appendChild(fullscreenDiv);
-    }
-
-document.getElementById('enquiryForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  // Get the form data
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const phone = document.getElementById('phone').value;
-  const cabin = document.getElementById('cabin').value;
-  const door = document.getElementById('door').value;
-  const services = document.getElementById('services').value;
-
-  const responseMessage = document.getElementById('responseMessage');
-
-  // Check if all fields are filled
-  if (name && email && phone && cabin && door && services) {
-    // Prepare WhatsApp message
-    const whatsappMessage = `
-      *Enquiry Details*%0A
-      *Name*: ${name}%0A
-      *Email*: ${email}%0A
-      *Phone*: ${phone}%0A
-      *Cabin*: ${cabin}%0A
-      *Door*: ${door}%0A
-      *Services*: ${services}
-    `;
-
-    // Send the message to WhatsApp
-    window.open(`https://wa.me/919000737676?text=${whatsappMessage}`, '_blank'); // Replace with your WhatsApp number
-
-    // Display confirmation message
-    responseMessage.textContent = 'Enquiry sent successfully to WhatsApp!';
-    responseMessage.style.color = 'green';
-  } else {
-    responseMessage.textContent = 'Please fill in all fields before sending.';
-    responseMessage.style.color = 'red';
-  }
-});
-
-   
-
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
-    
 </body>
 </html>
